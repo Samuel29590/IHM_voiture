@@ -16,13 +16,14 @@ import QtQuick.Studio.Effects
 import QtQuick.Studio.Components 1.0
 
 Rectangle {
-    id: rectangle
+    id: main
     width: Constants.width
     height: Constants.height
+    visible: true
     color: "#272727"
 
     Button {
-        id: menu
+        id: menu_button1
         x: -73
         y: -171
         width: 50
@@ -38,12 +39,12 @@ Rectangle {
         highlighted: false
         display: AbstractButton.IconOnly
         Connections {
-            target: menu
-            onClicked: animation.start()
+            target: menu_button1
+            onClicked: menu_popup.visible = true
         }
 
         Rectangle {
-            id: menu_borders
+            id: menu_borders1
             color: "#00ffffff"
             radius: 15
             border.color: "#ff00e1"
@@ -53,8 +54,8 @@ Rectangle {
         clip: false
         checkable: true
         antialiasing: true
-        anchors.verticalCenterOffset: -140
-        anchors.horizontalCenterOffset: -323
+        anchors.verticalCenterOffset: -159
+        anchors.horizontalCenterOffset: -316
         anchors.horizontalCenter: parent.horizontalCenter
         DesignEffect {
             layerBlurVisible: true
@@ -101,7 +102,7 @@ Rectangle {
             anchors.fill: parent
         }
         checkable: true
-        anchors.verticalCenterOffset: -140
+        anchors.verticalCenterOffset: -159
         anchors.horizontalCenterOffset: 316
         anchors.horizontalCenter: parent.horizontalCenter
         DesignEffect {
@@ -122,7 +123,7 @@ Rectangle {
     Rectangle {
         id: main_data
         x: 175
-        y: 40
+        y: 21
         width: 450
         height: 120
         color: "#00ffffff"
@@ -137,7 +138,7 @@ Rectangle {
             width: 78
             height: 33
             color: "#ff00e1"
-            text: qsTr("123")
+            text: qsTr("150")
             font.letterSpacing: 2
             font.pixelSize: 45
             topPadding: -17
@@ -232,7 +233,7 @@ Rectangle {
     Image {
         id: voiture
         x: 356
-        y: 364
+        y: 360
         width: 88
         height: 94
         source: "../img/4l.png"
@@ -262,8 +263,8 @@ Rectangle {
 
     Text {
         id: heure
-        x: 378
-        y: 456
+        x: 377
+        y: 454
         color: "#ffffff"
         text: qsTr("12:12")
         font.pixelSize: 18
@@ -364,7 +365,7 @@ Rectangle {
                 y: 44
                 width: 30
                 height: 10
-                color: "#00755a"
+                color: "#00ffc4"
                 radius: 4
             }
 
@@ -374,7 +375,7 @@ Rectangle {
                 y: 55
                 width: 30
                 height: 10
-                color: "#00755a"
+                color: "#00ffc4"
                 radius: 4
             }
 
@@ -384,7 +385,7 @@ Rectangle {
                 y: 66
                 width: 30
                 height: 10
-                color: "#00755a"
+                color: "#00ffc4"
                 radius: 4
             }
 
@@ -394,7 +395,7 @@ Rectangle {
                 y: 77
                 width: 30
                 height: 10
-                color: "#00755a"
+                color: "#00ffc4"
                 radius: 4
             }
 
@@ -404,7 +405,7 @@ Rectangle {
                 y: 88
                 width: 30
                 height: 10
-                color: "#00755a"
+                color: "#00ffc4"
                 radius: 4
             }
 
@@ -549,6 +550,23 @@ Rectangle {
                 text: qsTr("40")
                 font.letterSpacing: 2
                 font.pixelSize: 10
+                lineHeight: 1
+                topPadding: 0
+                styleColor: "#ffffff"
+                minimumPointSize: 10
+                minimumPixelSize: 10
+            }
+
+            Text {
+                id: degre_eau
+                x: 9
+                y: 104
+                width: 22
+                height: 19
+                color: "#ffffff"
+                text: qsTr("°c")
+                font.letterSpacing: 2
+                font.pixelSize: 15
                 lineHeight: 1
                 topPadding: 0
                 styleColor: "#ffffff"
@@ -816,6 +834,23 @@ Rectangle {
                 minimumPointSize: 10
                 minimumPixelSize: 10
             }
+
+            Text {
+                id: degre_huile
+                x: 9
+                y: 104
+                width: 22
+                height: 19
+                color: "#ffffff"
+                text: qsTr("°c")
+                font.letterSpacing: 2
+                font.pixelSize: 15
+                lineHeight: 1
+                topPadding: 0
+                styleColor: "#ffffff"
+                minimumPointSize: 10
+                minimumPixelSize: 10
+            }
         }
 
         Item {
@@ -1021,6 +1056,23 @@ Rectangle {
                 text: qsTr("0")
                 font.letterSpacing: 2
                 font.pixelSize: 10
+                lineHeight: 1
+                topPadding: 0
+                styleColor: "#ffffff"
+                minimumPointSize: 10
+                minimumPixelSize: 10
+            }
+
+            Text {
+                id: pression_huile
+                x: 7
+                y: 104
+                width: 28
+                height: 19
+                color: "#ffffff"
+                text: qsTr("bar")
+                font.letterSpacing: 2
+                font.pixelSize: 15
                 lineHeight: 1
                 topPadding: 0
                 styleColor: "#ffffff"
@@ -1261,6 +1313,23 @@ Rectangle {
                 minimumPointSize: 10
                 minimumPixelSize: 10
             }
+
+            Text {
+                id: pression_turbo
+                x: 7
+                y: 104
+                width: 28
+                height: 19
+                color: "#ffffff"
+                text: qsTr("bar")
+                font.letterSpacing: 2
+                font.pixelSize: 15
+                lineHeight: 1
+                topPadding: 0
+                styleColor: "#ffffff"
+                minimumPointSize: 10
+                minimumPixelSize: 10
+            }
         }
 
         Item {
@@ -1464,6 +1533,23 @@ Rectangle {
                 text: qsTr("10")
                 font.letterSpacing: 2
                 font.pixelSize: 10
+                lineHeight: 1
+                topPadding: 0
+                styleColor: "#ffffff"
+                minimumPointSize: 10
+                minimumPixelSize: 10
+            }
+
+            Text {
+                id: voltage
+                x: 16
+                y: 104
+                width: 10
+                height: 19
+                color: "#ffffff"
+                text: qsTr("V")
+                font.letterSpacing: 2
+                font.pixelSize: 15
                 lineHeight: 1
                 topPadding: 0
                 styleColor: "#ffffff"
@@ -1681,6 +1767,23 @@ Rectangle {
                 minimumPointSize: 10
                 minimumPixelSize: 10
             }
+
+            Text {
+                id: litre
+                x: 16
+                y: 104
+                width: 8
+                height: 19
+                color: "#ffffff"
+                text: qsTr("L")
+                font.letterSpacing: 2
+                font.pixelSize: 15
+                lineHeight: 1
+                topPadding: 0
+                styleColor: "#ffffff"
+                minimumPointSize: 10
+                minimumPixelSize: 10
+            }
         }
 
         Rectangle {
@@ -1705,7 +1808,7 @@ Rectangle {
     Image {
         id: sunset
         x: 322
-        y: 126
+        y: 96
         width: 157
         height: 140
         source: "../img/sunset.png"
@@ -1715,6 +1818,261 @@ Rectangle {
             color: "#4eff8d00"
         }
         fillMode: Image.PreserveAspectFit
+    }
+
+    Image {
+        id: jauge_gauche
+        x: 0
+        y: 0
+        width: 800
+        height: 480
+        source: "../img/gauche.png"
+        layer.effect: ColorOverlayEffect {
+            id: gauche_couleur
+            color: "#ff00e1"
+        }
+        layer.enabled: true
+        fillMode: Image.PreserveAspectFit
+    }
+
+    Image {
+        id: jauge_droite
+        x: 0
+        y: 0
+        width: 800
+        height: 480
+        source: "../img/droit.png"
+        layer.enabled: true
+        layer.effect: ColorOverlayEffect {
+            id: droite_couleur
+            color: "#ff00e1"
+        }
+        fillMode: Image.PreserveAspectFit
+    }
+
+    Image {
+        id: traits_gauche
+        x: 0
+        y: 0
+        width: 800
+        height: 480
+        source: "../img/gauche jauge.png"
+        layer.enabled: true
+        layer.effect: ColorOverlayEffect {
+            id: traits_gauche_couleur
+            color: "#272727"
+        }
+        fillMode: Image.PreserveAspectFit
+    }
+
+    Image {
+        id: traits_droite
+        x: 0
+        y: 0
+        width: 800
+        height: 480
+        source: "../img/droit jauge.png"
+        layer.enabled: true
+        layer.effect: ColorOverlayEffect {
+            id: traits_droite_couleur
+            color: "#272727"
+        }
+        fillMode: Image.PreserveAspectFit
+    }
+
+    Rectangle {
+        id: menu_popup
+        x: 45
+        y: 41
+        width: 330
+        height: 377
+        visible: false
+        color: "#191919"
+        radius: 10
+        border.color: "#ff00e1"
+        border.width: 2
+
+        Button {
+            id: menu_button2
+            x: 14
+            y: 15
+            width: 50
+            height: 50
+            text: qsTr("Menu")
+            anchors.verticalCenter: parent.verticalCenter
+            transformOrigin: Item.Center
+            smooth: true
+            layer.smooth: false
+            icon.source: "../img/menu.png"
+            icon.color: "#ff00e1"
+            highlighted: false
+            flat: true
+            display: AbstractButton.IconOnly
+            Connections {
+                target: menu_button2
+                onClicked: menu_popup.visible = false
+            }
+
+            Rectangle {
+                id: menu_borders2
+                color: "#00ffffff"
+                radius: 15
+                border.color: "#ff00e1"
+                border.width: 2
+                anchors.fill: parent
+            }
+
+            DesignEffect {
+                layerBlurVisible: true
+                effects: [
+                    DesignDropShadow {
+                        color: "#ff00e1"
+                        showBehind: false
+                        offsetY: 0
+                        offsetX: 0
+                    }
+                ]
+                backgroundBlurVisible: false
+                backgroundBlurRadius: 6
+            }
+            clip: false
+            checkable: true
+            antialiasing: true
+            anchors.verticalCenterOffset: -149
+            anchors.horizontalCenterOffset: -126
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+    }
+
+    Text {
+        id: text1
+        x: 257
+        y: 423
+        color: "#ffffff"
+        text: qsTr("10")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text2
+        x: 266
+        y: 405
+        color: "#ffffff"
+        text: qsTr("20")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text3
+        x: 274
+        y: 390
+        color: "#ffffff"
+        text: qsTr("30")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text4
+        x: 283
+        y: 373
+        color: "#ffffff"
+        text: qsTr("40")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text5
+        x: 290
+        y: 357
+        color: "#ffffff"
+        text: qsTr("50")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text6
+        x: 299
+        y: 341
+        color: "#ffffff"
+        text: qsTr("60")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text7
+        x: 307
+        y: 325
+        color: "#ffffff"
+        text: qsTr("70")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text8
+        x: 316
+        y: 309
+        color: "#ffffff"
+        text: qsTr("80")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text9
+        x: 324
+        y: 293
+        color: "#ffffff"
+        text: qsTr("90")
+        font.pixelSize: 15
+        font.italic: true
+    }
+
+    Text {
+        id: text10
+        x: 330
+        y: 278
+        color: "#ffffff"
+        text: qsTr("100")
+        font.pixelSize: 13
+        font.italic: true
+    }
+
+    Text {
+        id: text11
+        x: 339
+        y: 262
+        color: "#ffffff"
+        text: qsTr("110")
+        font.pixelSize: 13
+        font.italic: true
+    }
+
+    Text {
+        id: text12
+        x: 347
+        y: 246
+        color: "#ffffff"
+        text: qsTr("120")
+        font.pixelSize: 13
+        font.italic: true
+    }
+
+    Text {
+        id: text13
+        x: 357
+        y: 231
+        height: 20
+        color: "#ffffff"
+        text: qsTr("130")
+        font.pixelSize: 12
+        font.italic: true
     }
 
     states: [
