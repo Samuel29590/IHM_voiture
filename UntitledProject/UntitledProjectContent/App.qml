@@ -11,7 +11,7 @@ Window {
     visible: true
     title: "UntitledProject"
 
-    Screen01 {
+    main {
         id: mainScreen
     }
 
